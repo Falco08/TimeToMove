@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+button {
+  font-size: 16px;
+  width: fit-content;
+}
+
+#header {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-color: teal;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  vertical-align: top;
+}
+
+main > h1 {
+  text-align: center;
+}
+
+.creaSvegliaDiv {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.orariContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+}
+
+.orariContainer div {
+  background-color: #bbdefb;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  color: #1565c0;
+  font-weight: bold;
+}
+
+.orariContainer div:hover {
+  background-color: #90caf9;
+}
+
+.svegliaAttiva {
+  background-color: #1565c0 !important;
+  color: #bbdefb !important;
+}
+
+#esercizioDiv {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+}
+
+.wrapperBottoni {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.listaEsercizi {
+  background-color: #2e7d32;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+#ulEsercizi {
+  margin-top: 10px;
+}
+
+.esercizio-item {
+  background-color: #4caf50;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.esercizio-item button {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.esercizio-item button:hover {
+  background-color: #b71c1c;
+}
+
+aside {
+  display: inline-block;
+  width: 15%;
+  vertical-align: top;
+  margin-left: 2%;
+}
+
+dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 75%;
+  height: 70%;
+  background-color: #90caf9;
+  color: white;
+  z-index: 1000;
+  border: none;
+  border-radius: 15px;
+}
+
+.dialog-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  width: 90%;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.close-button:hover {
+  background-color: #b71c1c;
+}
