@@ -5,43 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Time to move</title>
     <link rel="stylesheet" href="timeToMove.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <header id="header">
+    <section id="cover">
       <h1>Attiva le sveglie e muoviti un po'!</h1>
-      <button id="activateAlarms">Attiva Sveglia</button>
-    </header>
-    <main>
+      <button id="activateAlarms">Attiva sveglie</button>
+    </section>
+    <header>
       <h1>Te devi da move</h1>
-      <div class="creaSvegliaDiv">
-        <div id="timeOptions" class="timeOptions">
-          <h2>A che ora ci muoviamo?</h2>
-          <div id="orariContainer" class="orariContainer"></div>
+    </header>
+    <section class="mainSection">
+      <main>
+        <div class="creaSvegliaDiv">
+          <div id="timeOptions" class="timeOptions">
+            <h2>A che ora ci muoviamo?</h2>
+            <div id="orariContainer" class="orariContainer"></div>
+          </div>
         </div>
-      </div>
-      <input type="text" id="esercizioDiv" placeholder="Inserisci un esercizio che vorresti fare" />
-      <div class="wrapperBottoni">
-        <button id="aggiungiEsercizio">Aggiungi esercizio</button>
-      </div>
-    </main>
-    <aside>
-      <div id="esercizi" class="listaEsercizi">
-        <h2>Lista Esercizi</h2>
-        <div id="ulEsercizi"></div>
-      </div>
-    </aside>
+        <div class="esercizioForm">
+          <input type="text" id="esercizioDiv" placeholder="Inserisci un esercizio che vorresti fare" />
+          <div class="wrapperBottoni">
+            <button id="aggiungiEsercizio">Aggiungi esercizio</button>
+          </div>
+        </div>
+      </main>
+      <aside>
+        <div id="esercizi" class="listaEsercizi">
+          <h2 style="text-align: center">Lista Esercizi</h2>
+          <div id="ulEsercizi"></div>
+        </div>
+      </aside>
+    </section>
 
     <dialog id="svegliaInCorso">
+      <button id="closeDialog" class="close-button">x</button>
       <div class="dialog-content">
-        <button id="closeDialog" class="close-button">x</button>
         <h1 id="dialogMessage"></h1>
       </div>
     </dialog>
-
-    <!-- Button to open the dialog for testing -->
-    <div style="text-align: center; margin-top: 20px">
-      <button id="openDialogTest">Apri Dialog</button>
-    </div>
   </body>
 </html>
 <script src="timeToMove.js"></script>

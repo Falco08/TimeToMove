@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
       generaSelectOrari();
       generaListaEsercizi();
       resetMezzanotte();
-      document.getElementById("header").style.display = "none";
+      document.getElementById("cover").style.display = "none";
     });
   });
 });
@@ -196,7 +196,7 @@ const openDialog = (exercise) => {
   dialogMessage.textContent =
     exercise === ""
       ? "Alzati e cammina per dieci minuti, Lazzaro!"
-      : `È ora di muoversi! Fammi ${exercise} e prenditi dieci minuti di pausa per bere e riposarti.`;
+      : `È ora di muoversi! Fammi ${exercise.toLowerCase()} e prenditi dieci minuti di pausa per bere e riposarti.`;
   svegliaInCorso.showModal();
   alarmSound.play();
 };
@@ -213,6 +213,7 @@ function impostaSveglie() {
   }
 }
 
+//Quando la funzione viene chiamata da resetMezzanotte le sveglie nel JSON sono tutte impostate a null, CORREGGERE
 const impostaSveglieAggiuntive = (orario) => {
   if (sveglieImpostate[orario]) return;
 
@@ -253,12 +254,3 @@ function resetMezzanotte() {
     resetMezzanotte();
   }, tempoAMezzanotte);
 }
-
-//FUNZIONI TESTING
-
-//TESTING DIALOG
-document.getElementById("openDialogTest").addEventListener("click", () => {
-  const dialog = document.getElementById("svegliaInCorso");
-  dialogMessage.textContent = "Test dialog message!";
-  dialog.showModal();
-});
