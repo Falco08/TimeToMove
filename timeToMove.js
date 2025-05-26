@@ -1,6 +1,6 @@
 const timeOptions = document.getElementById("timeOptions");
 const esercizioDiv = document.getElementById("esercizioDiv");
-const aggiungiEsercizio = document.getElementById("aggiungiEsercizio");
+const aggiungiEsercizioDiv = document.getElementById("aggiungiEsercizio");
 const ulEsercizi = document.getElementById("ulEsercizi");
 const svegliaInCorso = document.getElementById("svegliaInCorso");
 const closeDialog = document.getElementById("closeDialog");
@@ -161,7 +161,17 @@ const generaSelectOrari = () => {
   });
 };
 
-aggiungiEsercizio.addEventListener("click", () => {
+aggiungiEsercizioDiv.addEventListener("click", () => {
+  aggiungiEsercizio();
+});
+
+esercizioDiv.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    aggiungiEsercizio();
+  }
+});
+
+const aggiungiEsercizio = () => {
   if (!esercizioDiv.value) {
     return false;
   }
@@ -170,7 +180,7 @@ aggiungiEsercizio.addEventListener("click", () => {
   localStorage.setItem("esercizi", JSON.stringify(esercizi));
   generaListaEsercizi();
   esercizioDiv.value = "";
-});
+};
 
 const generaListaEsercizi = () => {
   ulEsercizi.innerHTML = "";
