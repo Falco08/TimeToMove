@@ -108,7 +108,7 @@ const svegliePossibili = [
   "23:45",
 ];
 const sveglieSalvate = JSON.parse(localStorage.getItem("sveglie")) || [];
-const sveglieImpostate = {}; //Traccia le sveeglie già impostate per aggiornare i timeout senza creare ripetizioni ed eliminare i deselezionati
+const sveglieImpostate = {}; //Traccia le sveglie già impostate per aggiornare i timeout senza creare ripetizioni ed eliminare i deselezionati. Possibilmente da rimuovere (?)
 const eserciziSalvati = JSON.parse(localStorage.getItem("esercizi")) || [
   "Piegamenti x15",
   "Piegamenti a braccia larghe x10",
@@ -216,6 +216,8 @@ function impostaSveglie() {
 //Quando la funzione viene chiamata da resetMezzanotte le sveglie nel JSON sono tutte impostate a null, CORREGGERE
 const impostaSveglieAggiuntive = (orario) => {
   if (sveglieImpostate[orario]) return;
+  console.log("In imposta sveglia!");
+  console.log(sveglieImpostate);
 
   const now = new Date();
   const [hours, minutes] = orario.split(":").map(Number);
@@ -234,13 +236,19 @@ const impostaSveglieAggiuntive = (orario) => {
   }, timeToAlarm);
 
   sveglieImpostate[orario] = timeoutId;
+  console.warn("Fine imposta sveglia!");
+  console.log(sveglieImpostate);
 };
 
 function cancellaSveglia(orario) {
+  console.log("In cancella sveglia!");
+  console.log(sveglieImpostate);
   if (sveglieImpostate[orario]) {
-    clearTimeout(sveglieImpostate[orario].timeoutId);
+    console.warn("In clearTimeout");
+    clearTimeout(sveglieImpostate[orario]);
   }
   delete sveglieImpostate[orario];
+  console.log(sveglieImpostate);
 }
 
 function resetMezzanotte() {
