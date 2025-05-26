@@ -216,8 +216,6 @@ function impostaSveglie() {
 //Quando la funzione viene chiamata da resetMezzanotte le sveglie nel JSON sono tutte impostate a null, CORREGGERE
 const impostaSveglieAggiuntive = (orario) => {
   if (sveglieImpostate[orario]) return;
-  console.log("In imposta sveglia!");
-  console.log(sveglieImpostate);
 
   const now = new Date();
   const [hours, minutes] = orario.split(":").map(Number);
@@ -236,19 +234,13 @@ const impostaSveglieAggiuntive = (orario) => {
   }, timeToAlarm);
 
   sveglieImpostate[orario] = timeoutId;
-  console.warn("Fine imposta sveglia!");
-  console.log(sveglieImpostate);
 };
 
 function cancellaSveglia(orario) {
-  console.log("In cancella sveglia!");
-  console.log(sveglieImpostate);
   if (sveglieImpostate[orario]) {
-    console.warn("In clearTimeout");
     clearTimeout(sveglieImpostate[orario]);
   }
   delete sveglieImpostate[orario];
-  console.log(sveglieImpostate);
 }
 
 function resetMezzanotte() {
